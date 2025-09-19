@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #1E293B;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #1E293B;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #1E293B;
+
+  --color-primary: #6B46C1;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #F8FAFC;
+  --color-secondary-foreground: #1E293B;
+
+  --color-muted: #F8FAFC;
+  --color-muted-foreground: #64748B;
+
+  --color-accent: #E0F2FE;
+  --color-accent-foreground: #3B82F6;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #fafafa;
+
+  --color-border: #E2E8F0;
+  --color-input: #E2E8F0;
+  --color-ring: #6B46C1;
+
+  --color-chart-1: #e67e22;
+  --color-chart-2: #2d8659;
+  --color-chart-3: #1e3a5f;
+  --color-chart-4: #f1c40f;
+  --color-chart-5: #e74c3c;
+
+  --color-sidebar: #ffffff;
+  --color-sidebar-foreground: #64748B;
+  --color-sidebar-primary: #6B46C1;
+  --color-sidebar-primary-foreground: #ffffff;
+  --color-sidebar-accent: #E0F2FE;
+  --color-sidebar-accent-foreground: #3B82F6;
+  --color-sidebar-border: #E2E8F0;
+  --color-sidebar-ring: #6B46C1;
+
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  --font-primary: "Inter", sans-serif;
+
+  --text-main-heading: 48px;
+  --text-section-heading: 32px;
+  --text-subsection-heading: 24px;
+  --text-tool-name: 16px;
+  --text-body: 16px;
+  --text-description: 14px;
+  --text-small: 12px;
+
+  --font-weight-bold: 700;
+  --font-weight-semibold: 600;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: #E2E8F0;
+  }
+}
+
+@layer utilities {
+  body {
+    font-family: var(--font-primary);
+  }
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #1E293B;
+    --card: #ffffff;
+    --card-foreground: #1E293B;
+    --popover: #ffffff;
+    --popover-foreground: #1E293B;
+    --primary: #6B46C1;
+    --primary-foreground: #ffffff;
+    --secondary: #F8FAFC;
+    --secondary-foreground: #1E293B;
+    --muted: #F8FAFC;
+    --muted-foreground: #64748B;
+    --accent: #E0F2FE;
+    --accent-foreground: #3B82F6;
+    --destructive: #ef4444;
+    --destructive-foreground: #fafafa;
+    --border: #E2E8F0;
+    --input: #E2E8F0;
+    --ring: #6B46C1;
+    --chart-1: #e67e22;
+    --chart-2: #2d8659;
+    --chart-3: #1e3a5f;
+    --chart-4: #f1c40f;
+    --chart-5: #e74c3c;
+    --radius: 0.5rem;
+    --sidebar-background: #ffffff;
+    --sidebar-foreground: #64748B;
+    --sidebar-primary: #6B46C1;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #E0F2FE;
+    --sidebar-accent-foreground: #3B82F6;
+    --sidebar-border: #E2E8F0;
+    --sidebar-ring: #6B46C1;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-primary);
+    font-size: var(--text-body);
+    line-height: 1.6;
+    font-weight: var(--font-weight-normal);
+  }
+
+  h1 {
+    font-size: var(--text-main-heading);
+    line-height: 1.2;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-foreground);
+  }
+
+  h2 {
+    font-size: var(--text-section-heading);
+    line-height: 1.3;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-foreground);
+  }
+
+  h3 {
+    font-size: var(--text-subsection-heading);
+    line-height: 1.4;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-foreground);
+  }
+
+  .tool-name {
+    font-size: var(--text-tool-name);
+    line-height: 1.5;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-foreground);
+  }
+
+  .description {
+    font-size: var(--text-description);
+    line-height: 1.5;
+    font-weight: var(--font-weight-normal);
+    color: var(--color-muted-foreground);
+  }
+
+  .small-text {
+    font-size: var(--text-small);
+    line-height: 1.4;
+    font-weight: var(--font-weight-normal);
+    color: var(--color-muted-foreground);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Hide Next.js error overlay portal */
+nextjs-portal {
+  display: none !important;
+}
